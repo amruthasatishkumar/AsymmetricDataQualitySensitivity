@@ -1,0 +1,28 @@
+Training-set profile for task=t1  n_train=60,310  prevalence(y=1)=0.8226
+
+purchase_hour: numeric  n=60310  miss=0.0%  mean=14.8  std=5.36  p10=9  p50=15  p90=22  min=0  max=23  corr_y=+0.004
+purchase_dow: numeric  n=60310  miss=0.0%  mean=2.78  std=1.96  p10=0  p50=3  p90=6  min=0  max=6  corr_y=+0.001
+purchase_month: numeric  n=60310  miss=0.0%  mean=6.08  std=3.82  p10=1  p50=6  p90=11  min=1  max=12  corr_y=+0.030
+days_to_estimated: numeric  n=60310  miss=0.0%  mean=24.7  std=8.15  p10=15.2  p50=23.7  p90=34.2  min=1.65  max=150  corr_y=-0.046
+n_items: numeric  n=59722  miss=1.0%  mean=1.14  std=0.533  p10=1  p50=1  p90=1  min=1  max=21  corr_y=-0.122
+total_price: numeric  n=59722  miss=1.0%  mean=137  std=209  p10=25  p50=85.7  p90=270  min=2.29  max=1.34e+04  corr_y=-0.049
+total_freight: numeric  n=59722  miss=1.0%  mean=22.1  std=19.7  p10=11  p50=16.7  p90=37.8  min=0  max=1e+03  corr_y=-0.109
+freight_ratio: numeric  n=59722  miss=1.0%  mean=0.305  std=0.299  p10=0.0789  p50=0.223  p90=0.614  min=0  max=12.2  corr_y=-0.023
+max_price: numeric  n=59722  miss=1.0%  mean=126  std=189  p10=24.5  p50=79  p90=247  min=2.29  max=6.74e+03  corr_y=-0.023
+mean_price: numeric  n=59722  miss=1.0%  mean=125  std=189  p10=24.4  p50=79  p90=243  min=1.51  max=6.74e+03  corr_y=-0.021
+n_unique_products: numeric  n=59722  miss=1.0%  mean=1.04  std=0.218  p10=1  p50=1  p90=1  min=1  max=7  corr_y=-0.101
+n_unique_sellers: numeric  n=59722  miss=1.0%  mean=1.01  std=0.11  p10=1  p50=1  p90=1  min=1  max=5  corr_y=-0.107
+n_payments: numeric  n=60309  miss=0.0%  mean=1.05  std=0.422  p10=1  p50=1  p90=1  min=1  max=29  corr_y=-0.006
+total_payment_value: numeric  n=60309  miss=0.0%  mean=159  std=219  p10=39.4  p50=104  p90=308  min=10.1  max=1.37e+04  corr_y=-0.059
+max_installments: numeric  n=60309  miss=0.0%  mean=2.99  std=2.77  p10=1  p50=2  p90=8  min=1  max=24  corr_y=-0.036
+payment_type_modal: categorical  n=60309  miss=0.0%  unique=4  top=credit_card=46038, boleto=12418, voucher=1238  prev_y_top=0.822
+customer_state: categorical  n=60310  miss=0.0%  unique=27  top=SP=24254, RJ=8122, MG=7244  prev_y_top=0.852
+n_seller_states: numeric  n=59722  miss=1.0%  mean=1  std=0.0657  p10=1  p50=1  p90=1  min=1  max=3  corr_y=-0.074
+mean_product_weight_g: numeric  n=59706  miss=1.0%  mean=2.16e+03  std=3.86e+03  p10=175  p50=700  p90=6.35e+03  min=50  max=4.04e+04  corr_y=-0.029
+mean_product_volume_cm3: numeric  n=59706  miss=1.0%  mean=1.59e+04  std=2.43e+04  p10=1.3e+03  p50=6.86e+03  p90=4e+04  min=288  max=2.94e+05  corr_y=-0.028
+dominant_category: categorical  n=58614  miss=2.8%  unique=72  top=cama_mesa_banho=5704, esporte_lazer=5017, beleza_saude=4755  prev_y_top=0.799
+days_to_approved: numeric  n=60235  miss=0.1%  mean=0.42  std=1.2  p10=0.00664  p50=0.0127  p90=1.43  min=0  max=188  corr_y=-0.026
+days_carrier_to_customer: numeric  n=58243  miss=3.4%  mean=10.3  std=9.38  p10=2.08  p50=7.94  p90=20.2  min=-16.1  max=205  corr_y=-0.336
+days_purchase_to_delivery: numeric  n=58244  miss=3.4%  mean=13.7  std=10.2  p10=4.89  p50=11.4  p90=24.8  min=0.533  max=208  corr_y=-0.367
+delivery_vs_estimate_days: numeric  n=58244  miss=3.4%  mean=-10.9  std=10.5  p10=-20.4  p50=-12.1  p90=-1.02  min=-146  max=189  corr_y=-0.327
+order_status: categorical  n=60310  miss=0.0%  unique=8  top=delivered=58241, shipped=678, unavailable=513  prev_y_top=0.846

@@ -1,0 +1,20 @@
+[project]
+name = "agentdq"
+version = "0.1.0"
+description = "AgentDQ: Differential Sensitivity of Classical ML and LLM Agents to Tabular Data-Quality Corruptions"
+requires-python = ">=3.10,<3.13"
+authors = [{ name = "A. Satishkumar" }]
+license = { text = "MIT" }
+readme = "README.md"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

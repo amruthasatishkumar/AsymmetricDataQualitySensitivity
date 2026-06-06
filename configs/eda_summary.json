@@ -1,0 +1,9 @@
+{
+  "n_orders": 99441,
+  "n_reviews_used_T1": 91045,
+  "T1_positive_prev": 0.839914,
+  "n_orders_used_T2": 96476,
+  "T2_positive_prev": 0.081129,
+  "purchase_min": "2016-09-04 21:15:19",
+  "purchase_max": "2018-10-17 17:30:18"
+}

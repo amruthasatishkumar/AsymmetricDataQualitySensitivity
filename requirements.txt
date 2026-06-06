@@ -1,0 +1,32 @@
+# Core data
+pandas>=2.2,<3.0
+polars>=1.0,<2.0
+numpy>=1.26,<2.3
+pyarrow>=15.0
+kagglehub==0.3.4
+kagglesdk==0.1.7
+
+# ML
+scikit-learn>=1.4,<2.0
+xgboost>=2.0,<3.0
+
+# Profiling (Step 3 / A1 access mode)
+ydata-profiling>=4.8
+
+# LLM client (Azure AI Foundry / Azure OpenAI compatible)
+openai>=1.40
+azure-identity>=1.17
+python-dotenv>=1.0
+
+# Plotting
+matplotlib>=3.8
+seaborn>=0.13
+
+# Utilities
+pydantic>=2.6
+tqdm>=4.66
+tenacity>=8.2
+
+# Dev / test
+pytest>=8.0
+ruff>=0.5

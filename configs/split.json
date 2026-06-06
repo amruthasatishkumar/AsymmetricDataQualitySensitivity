@@ -1,0 +1,22 @@
+{
+  "policy": "temporal split on order_purchase_timestamp",
+  "boundaries": {
+    "train_end_exclusive": "2018-04-01T00:00:00",
+    "val_end_exclusive": "2018-06-01T00:00:00"
+  },
+  "counts": {
+    "train": 66638,
+    "val": 13812,
+    "test": 18991,
+    "drop": 0,
+    "total": 99441
+  },
+  "fractions": {
+    "train": 0.6701,
+    "val": 0.1389,
+    "test": 0.191
+  },
+  "artifacts": {
+    "split_parquet": "data/bronze/split_orders.parquet"
+  }
+}

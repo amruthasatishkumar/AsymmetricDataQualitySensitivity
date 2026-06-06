@@ -1,0 +1,12 @@
+# Olist raw-file SHA-256 manifest (first 16 hex chars)
+# source: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+983a422239e1712d     9033957  olist_customers_dataset.csv
+b514f6fc991b9566    61273883  olist_geolocation_dataset.csv
+0bc4d068c4fe38cb    15438671  olist_order_items_dataset.csv
+4f713964f2815dbb     5777138  olist_order_payments_dataset.csv
+012b61c7593e34f5    14451670  olist_order_reviews_dataset.csv
+8df58ef3d2d7e994    17654914  olist_orders_dataset.csv
+3e6569628a17fbc7     2379446  olist_products_dataset.csv
+1f643d2b950373b8      174703  olist_sellers_dataset.csv
+a81f0d1f27b27e72        2613  product_category_name_translation.csv
