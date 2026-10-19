@@ -17,6 +17,7 @@ import pandas as pd
 REPO = Path(__file__).resolve().parent.parent
 SILVER = REPO / "data" / "silver"
 CONFIGS = REPO / "configs"
+TEXT_COLS = {"review_comment_title", "review_comment_message"}
 
 NUMERIC_TEMPLATE = (
     "{col}: numeric  n={n}  miss={miss:.1%}  "
@@ -30,6 +31,16 @@ CATEGORICAL_TEMPLATE = (
     "{col}: categorical  n={n}  miss={miss:.1%}  "
     "unique={uniq}  top={top}  prev_y_top={py:.3f}"
 )
+
+
+def _profile_text(s: pd.Series) -> str:
+    s = s.astype("object")
+    filled = s.dropna().astype(str).str.strip()
+    filled = filled[filled != ""]
+    n = int(filled.shape[0])
+    miss = 1.0 - n / max(len(s), 1)
+    mean_len = float(filled.str.len().mean()) if n else 0.0
+    return f"{s.name}: free text  n={n}  miss={miss:.1%}  mean_chars={mean_len:.0f}"
 
 
 def _profile_numeric(s: pd.Series, y: pd.Series) -> str:
@@ -73,7 +84,7 @@ def _profile_categorical(s: pd.Series, y: pd.Series, max_levels: int = 3) -> str
 
 def make_profile(task: str, feature_cols: list[str], categorical_cols: set[str]) -> str:
     df = pd.read_parquet(SILVER / "order_features.parquet")
-    target = "y_t1" if task == "t1" else "y_t2"
+    target = {"t1": "y_t1", "t2": "y_t2", "t3": "y_t3"}[task]
     sub = df[(df["split"] == "train") & df[target].notna()].copy()
     y = sub[target].astype(int)
 
@@ -86,7 +97,9 @@ def make_profile(task: str, feature_cols: list[str], categorical_cols: set[str])
     for c in feature_cols:
         if c not in sub.columns:
             continue
-        if c in categorical_cols:
+        if c in TEXT_COLS:
+            lines.append(_profile_text(sub[c]))
+        elif c in categorical_cols:
             lines.append(_profile_categorical(sub[c], y))
         else:
             lines.append(_profile_numeric(sub[c], y))
