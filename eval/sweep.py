@@ -11,6 +11,11 @@ Run:
     python -m eval.sweep                 # default: T3 + canonical-5 + 5 seeds
     python -m eval.sweep --tasks t3 t2   # both tasks
     python -m eval.sweep --dry-run       # print plan only
+
+Extra seeds for one family, written to a separate file so the original
+results are never touched:
+    python -m eval.sweep --tasks t3 --families schema_drift --severities med high \
+        --seeds 53 59 61 67 71 --out logs/sweep_extra_seeds.parquet
 """
 from __future__ import annotations
 
@@ -145,8 +150,18 @@ def main() -> int:
     ap.add_argument("--families", nargs="+", default=CANONICAL_FAMILIES)
     ap.add_argument("--n", type=int, default=N_PER_CELL)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--seeds", nargs="+", type=int, default=None,
+                    help="override the default seeds for every task")
+    ap.add_argument("--severities", nargs="+", default=None,
+                    choices=[label for label, _ in SEVERITIES])
+    ap.add_argument("--out", type=Path, default=None,
+                    help="write to this parquet instead of logs/sweep.parquet")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
+    if args.out is not None:
+        global SWEEP_PARQUET
+        SWEEP_PARQUET = args.out if args.out.is_absolute() else REPO / args.out
+        SWEEP_PARQUET.parent.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_parquet(SILVER)
     existing = _existing_keys()
@@ -154,9 +169,11 @@ def main() -> int:
     plan: list[tuple] = []
     for task in args.tasks:
         target = {"t1": "y_t1", "t2": "y_t2", "t3": "y_t3"}[task]
-        seeds = SEEDS_FULL if task in ("t3", "t2") else SEEDS_REDUCED
+        seeds = args.seeds or (SEEDS_FULL if task in ("t3", "t2") else SEEDS_REDUCED)
         for family in args.families:
             for sev_label, sev_val in SEVERITIES:
+                if args.severities and sev_label not in args.severities:
+                    continue
                 for seed in seeds:
                     key = (task, family, sev_label, seed)
                     if key in existing:
