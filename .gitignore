@@ -25,3 +25,4 @@ logs/
 Thumbs.db
 .vscode/
 .idea/
+analysis/out/

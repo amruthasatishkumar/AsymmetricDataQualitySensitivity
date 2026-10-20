@@ -30,3 +30,7 @@ tenacity>=8.2
 # Dev / test
 pytest>=8.0
 ruff>=0.5
+
+# Analysis (analysis/reproduce_paper_numbers.py)
+scipy>=1.11
+matplotlib>=3.8

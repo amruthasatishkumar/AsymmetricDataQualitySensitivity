@@ -49,6 +49,25 @@ python -m eval.gate
 python -m eval.sweep
 ```
 
+## Paper numbers
+
+Every statistic, table and figure in the revised paper is regenerated from the logged sweep:
+
+```powershell
+python analysis/reproduce_paper_numbers.py
+```
+
+It reads `logs/sweep.parquet` (main sweep, 150 cells) and `logs/sweep_extra_seeds.parquet` (five extra seeds for T2 `schema_drift` at medium and high severity) and writes to `analysis/out/`. `logs/sweep_extra_seeds.parquet` was rebuilt from the run's CSV export (values to six decimals, 1,000 parsed rows per cell); it has no per-cell timestamp column.
+
+Task names in the code differ from the paper:
+
+| Paper | Code | Label | Rows per cell |
+|---|---|---|---|
+| T1, late delivery | `t2` (`y_t2`) | delivered after the estimate | 500 |
+| T2, negative review | `t3` (`y_t3`) | review score of 1 or 2 | 1,000 |
+
+Code task `t1` is an exploratory task that is not in the paper.
+
 ## Repository layout
 
 ```
