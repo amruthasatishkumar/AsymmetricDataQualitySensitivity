@@ -57,7 +57,7 @@ Every statistic, table and figure in the revised paper is regenerated from the l
 python analysis/reproduce_paper_numbers.py
 ```
 
-It reads `logs/sweep.parquet` (main sweep, 150 cells) and `logs/sweep_extra_seeds.parquet` (five extra seeds for T2 `schema_drift` at medium and high severity) and writes to `analysis/out/`.
+It reads `logs/sweep.parquet` (main sweep, 150 cells) and `logs/sweep_extra_seeds.parquet` (five extra seeds for T2 `schema_drift` at medium and high severity) and writes to `analysis/out/`. `logs/sweep_extra_seeds.parquet` was rebuilt from the run's CSV export (values to six decimals, 1,000 parsed rows per cell); it has no per-cell timestamp column.
 
 Task names in the code differ from the paper:
 
