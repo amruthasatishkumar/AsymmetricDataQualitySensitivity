@@ -2,7 +2,7 @@
 
 Code and data pipeline accompanying the manuscript
 *Asymmetric Data-Quality Sensitivity in Predictive Models and LLM Agents*
-(ICDM 2026 Applied Track).
+(preprint; arXiv link to follow).
 
 The headline finding the experiments support: the data-quality issues
 that most degrade an XGBoost-style ML pipeline are not the same as
@@ -112,10 +112,10 @@ Code: MIT. Olist data: CC BY-NC-SA 4.0 — see `data/raw/LICENSE` after download
 ## Citation
 
 ```bibtex
-@inproceedings{satishkumar2026asymmetric,
-  title     = {Asymmetric Data-Quality Sensitivity in Predictive Models and {LLM} Agents},
-  author    = {Satishkumar, Amrutha and Padmanabha Suwarna, Krithika},
-  booktitle = {Proceedings of the IEEE International Conference on Data Mining (ICDM), Applied Track},
-  year      = {2026}
+@misc{satishkumar2026asymmetric,
+  title  = {Asymmetric Data-Quality Sensitivity in Predictive Models and {LLM} Agents},
+  author = {Satishkumar, Amrutha and Padmanabha Suwarna, Krithika},
+  year   = {2026},
+  note   = {Preprint}
 }
 ```
